@@ -1,8 +1,11 @@
 plugins {
 	id 'org.springframework.boot' version '2.5.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
 }
+
+apply plugin: 'java'
+// Apply the groovy plugin to also add support for Groovy (needed for Spock)
+apply plugin: 'groovy'
 
 group = 'pl.szeliga'
 version = '0.0.1-SNAPSHOT'
@@ -26,8 +29,30 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	runtimeOnly 'com.h2database:h2'
+
+	// zobacz tu: https://github.com/spockframework/spock-example/blob/master/build.gradle
+	// mandatory dependencies for using Spock
+	implementation "org.codehaus.groovy:groovy:3.0.8"
+	testImplementation platform("org.spockframework:spock-bom:2.0-groovy-3.0")
+	testImplementation "org.spockframework:spock-core"
+	testImplementation "org.spockframework:spock-spring"
+	testImplementation "org.spockframework:spock-junit4"  // you can remove this if your code does not rely on old JUnit 4 rules
+	testCompileOnly 'junit:junit:4.12'
+
+	// optional dependencies for using Spock
+	testImplementation "org.hamcrest:hamcrest-core:2.2"   // only necessary if Hamcrest matchers are used
+	testRuntimeOnly "net.bytebuddy:byte-buddy:1.11.0" // allows mocking of classes (in addition to interfaces)
+	testRuntimeOnly "org.objenesis:objenesis:3.2"      // allows mocking of classes without default constructor (together with ByteBuddy or CGLIB)
+
+	// dependencies used by examples in this project
+	testRuntimeOnly "com.h2database:h2:1.4.197"
 }
 
 test {
-	useJUnitPlatform()
+	test {
+		useJUnitPlatform()
+		testLogging {
+			events "passed", "skipped", "failed"
+		}
+	}
 }

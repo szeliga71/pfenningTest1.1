@@ -1,8 +1,7 @@
 package pl.szeliga.pfenningTest11.service;
 
-
-import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.szeliga.pfenningTest11.model.Tour;
 import pl.szeliga.pfenningTest11.repository.TourRepository;
@@ -10,25 +9,17 @@ import pl.szeliga.pfenningTest11.repository.TourRepository;
 import java.util.List;
 
 @Service
-@Getter
-@Setter
+@Data
 @RequiredArgsConstructor
 public class TourService {
 
-    @Autowired
-    public final TourRepository tourRepository;
+  public final TourRepository tourRepository;
 
+  public List<Tour> getAllTour() {
+    return tourRepository.findAll();
+  }
 
-    //public Tour getTourId(int id) {
-      //  return tourRepository.;
-
-
-    public List<Tour> getAllTour() {
-        return tourRepository.findAll();
-    }
-
-    public Tour addTour(Tour tour) {
-        
-        return tourRepository.save(tour);
-    }
+  public Tour addTour(Tour tour) {
+    return tourRepository.save(tour);
+  }
 }
