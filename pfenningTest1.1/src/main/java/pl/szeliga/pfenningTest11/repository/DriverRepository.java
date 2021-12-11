@@ -4,11 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import pl.szeliga.pfenningTest11.model.Driver;
 
-import java.util.List;
-
 @Repository
-public interface DriverRepository extends JpaRepository<Driver,Long> {
+public interface DriverRepository extends JpaRepository<Driver, Long> {
 
     Driver findByLastName(String lastName);
-    }
+}
 

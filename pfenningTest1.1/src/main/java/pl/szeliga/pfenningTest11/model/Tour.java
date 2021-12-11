@@ -4,7 +4,6 @@ package pl.szeliga.pfenningTest11.model;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -30,8 +29,8 @@ public class Tour {
     private Long driverId;
 
 
-    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name="tourId",updatable = true ,insertable = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "tourId", updatable = true, insertable = true)
 
     private List<DestinationWare> destinationWare;
 }

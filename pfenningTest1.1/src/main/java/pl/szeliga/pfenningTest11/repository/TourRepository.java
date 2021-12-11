@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pl.szeliga.pfenningTest11.model.Tour;
 
 @Repository
-public interface TourRepository extends JpaRepository<Tour, Long > {
+public interface TourRepository extends JpaRepository<Tour, Long> {
 }

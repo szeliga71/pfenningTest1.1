@@ -1,7 +1,9 @@
 package pl.szeliga.pfenningTest11.service;
 
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.szeliga.pfenningTest11.model.Tour;
@@ -20,7 +22,7 @@ public class TourService {
 
 
     //public Tour getTourId(int id) {
-      //  return tourRepository.;
+    //  return tourRepository.;
 
 
     public List<Tour> getAllTour() {
@@ -28,7 +30,7 @@ public class TourService {
     }
 
     public Tour addTour(Tour tour) {
-        
+
         return tourRepository.save(tour);
     }
 }

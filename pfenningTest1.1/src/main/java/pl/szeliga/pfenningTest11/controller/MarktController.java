@@ -20,7 +20,7 @@ public class MarktController {
     private final MarktServis marktServis;
 
     @PostMapping("/markt")
-    public Markt addMarkt(@RequestBody Markt markt){
+    public Markt addMarkt(@RequestBody Markt markt) {
         return marktServis.addMarkt(markt);
     }
 

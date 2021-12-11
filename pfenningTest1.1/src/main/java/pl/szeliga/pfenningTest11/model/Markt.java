@@ -21,6 +21,6 @@ public class Markt {
     private String adres;
 
     @OneToMany
-    @JoinColumn(name="marktId",updatable = false,insertable = false)
+    @JoinColumn(name = "marktId", updatable = false, insertable = false)
     private List<DestinationWare> destinationWare;
 }

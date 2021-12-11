@@ -1,7 +1,10 @@
 package pl.szeliga.pfenningTest11.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +25,8 @@ import java.util.List;
 @ToString
 public class TourController {
 
-@Autowired
-private final DriverService driverService;
+    @Autowired
+    private final DriverService driverService;
 
     @Autowired
     private final TourService tourService;
@@ -36,28 +39,28 @@ private final DriverService driverService;
 
 
     @GetMapping("/tour/all")
-    public List<Tour> getAllTour(){
+    public List<Tour> getAllTour() {
         return tourService.getAllTour();
     }
 
 
     @PostMapping("tour")
-    public Tour addTour(@RequestBody Tour tour){
+    public Tour addTour(@RequestBody Tour tour) {
         return tourService.addTour(tour);
     }
 
 
-   @PostMapping("/tour/destination")
-    public ResponseEntity addTourDestination(@RequestHeader ("driver") String lastName, @RequestBody Tour tourBody, DestinationWare destinationBody){
-        Driver driverfromDB = (Driver) driverService.findByDriverName(lastName);
+    @PostMapping("/tour/destination")
+    public ResponseEntity addTourDestination(@RequestHeader("driver") String lastName, @RequestBody Tour tourBody, DestinationWare destinationBody) {
+        Driver driverfromDB = driverService.findByDriverName(lastName);
 
-        if(driverfromDB==null) {
+        if (driverfromDB == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         tourService.addTour(tourBody);
-       destinationWareServis.addDestinationWare(destinationBody);
-    return (ResponseEntity) ResponseEntity.ok(); }
-
+        destinationWareServis.addDestinationWare(destinationBody);
+        return ResponseEntity.ok().build();
+    }
 
 
 }

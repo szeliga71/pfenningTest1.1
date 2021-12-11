@@ -24,12 +24,12 @@ public class TruckController {
     private final TruckServis truckServis;
 
     @GetMapping("truck/all")
-    public List<Truck> getAllTrucks(){
+    public List<Truck> getAllTrucks() {
         return truckServis.getAllTrucks();
     }
 
     @PostMapping("/truck")
-    public Truck addTruck(@RequestBody Truck truck){
+    public Truck addTruck(@RequestBody Truck truck) {
         return truckServis.addTruck(truck);
     }
 }

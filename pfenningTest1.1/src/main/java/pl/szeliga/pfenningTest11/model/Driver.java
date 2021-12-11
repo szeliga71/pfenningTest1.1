@@ -1,6 +1,8 @@
 package pl.szeliga.pfenningTest11.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
@@ -22,7 +24,7 @@ public class Driver {
     private String endHire;
 
     @OneToMany
-    @JoinColumn(name="driverId",updatable = false,insertable = false)
+    @JoinColumn(name = "driverId", updatable = false, insertable = false)
     private List<Tour> tour;
 
 
