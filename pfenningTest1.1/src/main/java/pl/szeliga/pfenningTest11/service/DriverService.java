@@ -1,33 +1,29 @@
 package pl.szeliga.pfenningTest11.service;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.szeliga.pfenningTest11.model.Driver;
 import pl.szeliga.pfenningTest11.repository.DriverRepository;
 
 import java.util.List;
 
-
 @Service
 @Data
 @RequiredArgsConstructor
 public class DriverService {
 
-    private final DriverRepository driverRepository;
+  private final DriverRepository driverRepository;
 
-    public Driver addDriver(Driver driver) {
-        return driverRepository.save(driver);
-    }
+  public Driver addDriver(Driver driver) {
+    return driverRepository.save(driver);
+  }
 
-    public List<Driver> getAllDriver() {
-        return driverRepository.findAll();
-    }
+  public List<Driver> getAllDriver() {
+    return driverRepository.findAll();
+  }
 
-    public Driver findByDriverName(String lastName) {
-        return driverRepository.findByLastName(lastName);
-    }
+  public Driver findByDriverName(String lastName) {
+    return driverRepository.findByLastName(lastName);
+  }
 }
