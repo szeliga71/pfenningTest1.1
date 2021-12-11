@@ -18,6 +18,6 @@ public class Truck {
   private String plate;
 
   @OneToMany
-  @JoinColumn(name = "tourId", updatable = false, insertable = false)
+  @JoinColumn(updatable = false, insertable = false)
   private List<Tour> tour;
 }

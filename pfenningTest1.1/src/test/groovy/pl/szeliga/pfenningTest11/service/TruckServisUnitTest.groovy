@@ -9,7 +9,7 @@ import spock.lang.Specification
  * srednio to wyjasninli ale generalny koncept: https://pl.wikipedia.org/wiki/Test_jednostkowy
  */
 class TruckServisUnitTest extends Specification {
-    static final TEST_TRUCKS = [ new Truck(), new Truck() ] as List
+    static final TEST_TRUCKS = [new Truck(), new Truck()] as List
     TruckRepository truckRepository = Mock()
     TruckServis truckServis = new TruckServis(truckRepository)
 
@@ -26,5 +26,28 @@ class TruckServisUnitTest extends Specification {
     }
 
     def 'addTruck'() {
+        given:
+        def anotherTruck = new Truck().tap {
+            it.plate = 'DW 50098'
+            it.tour = ([] as List)
+        }
+        when:
+        def result = truckServis.addTruck(anotherTruck)
+
+        then:
+        result == anotherTruck
+        1 * truckRepository.save(anotherTruck) >> anotherTruck
+    }
+
+    def 'addTruck unhappy path'() {
+        given:
+        Truck anotherTruck = Stub()
+        when:
+        def result = truckServis.addTruck(anotherTruck)
+
+        then:
+        def exc = thrown(RuntimeException)
+        exc.message == 'bla bla'
+        1 * truckRepository.save(anotherTruck) >>  { throw new RuntimeException('bla bla') }
     }
 }
