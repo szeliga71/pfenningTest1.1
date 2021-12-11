@@ -1,6 +1,7 @@
 package pl.szeliga.pfenningTest11.model;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -11,9 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Getter
+@Getter // tutaj nie zamienilem na @Data, bo ma to efekty uboczne i jest niepolecane
+        // reference: https://deinum.biz/2019-02-13-Lombok-Data-Ojects-Arent-Entities/
 @Setter
-@RequiredArgsConstructor
 public class DestinationWare {
 
     @Id

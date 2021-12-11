@@ -1,9 +1,7 @@
 package pl.szeliga.pfenningTest11.controller;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.szeliga.pfenningTest11.model.Driver;
 import pl.szeliga.pfenningTest11.service.DriverService;
@@ -11,12 +9,10 @@ import pl.szeliga.pfenningTest11.service.DriverService;
 import java.util.List;
 
 @RestController
-@Getter
-@Setter
+@Data
 @RequiredArgsConstructor
 public class DriverController {
 
-    @Autowired
     private final DriverService driverService;
 
     @GetMapping("driver")

@@ -1,11 +1,8 @@
 package pl.szeliga.pfenningTest11.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Getter;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,22 +16,16 @@ import pl.szeliga.pfenningTest11.service.TourService;
 import java.util.List;
 
 @RestController
-@Getter
-@Setter
+@Data
 @RequiredArgsConstructor
-@ToString
 public class TourController {
 
-    @Autowired
     private final DriverService driverService;
 
-    @Autowired
     private final TourService tourService;
 
-    @Autowired
     private final DestinationWareServis destinationWareServis;
 
-    @Autowired
     ObjectMapper objectMapper;
 
 

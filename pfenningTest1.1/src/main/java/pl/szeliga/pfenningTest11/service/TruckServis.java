@@ -11,12 +11,9 @@ import pl.szeliga.pfenningTest11.repository.TruckRepository;
 import java.util.List;
 
 @Service
-@Getter
-@Setter
 @RequiredArgsConstructor
 public class TruckServis {
 
-    @Autowired
     private final TruckRepository truckRepository;
 
     public List<Truck> getAllTrucks() {

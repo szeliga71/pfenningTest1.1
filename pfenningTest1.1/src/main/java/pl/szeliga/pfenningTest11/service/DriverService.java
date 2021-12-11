@@ -1,5 +1,6 @@
 package pl.szeliga.pfenningTest11.service;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -12,15 +13,11 @@ import java.util.List;
 
 
 @Service
-@Getter
-@Setter
+@Data
 @RequiredArgsConstructor
 public class DriverService {
 
-
-    @Autowired
     private final DriverRepository driverRepository;
-
 
     public Driver addDriver(Driver driver) {
         return driverRepository.save(driver);

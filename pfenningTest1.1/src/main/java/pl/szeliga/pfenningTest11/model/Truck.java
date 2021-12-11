@@ -1,6 +1,7 @@
 package pl.szeliga.pfenningTest11.model;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

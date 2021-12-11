@@ -1,6 +1,7 @@
 package pl.szeliga.pfenningTest11.model;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -30,7 +31,6 @@ public class Tour {
 
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "tourId", updatable = true, insertable = true)
-
+    @JoinColumn(name = "tourId") // redundancy: te parametry maja domyslne wartosci 'true'
     private List<DestinationWare> destinationWare;
 }
