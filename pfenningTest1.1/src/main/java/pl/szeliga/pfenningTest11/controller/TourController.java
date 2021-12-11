@@ -1,11 +1,10 @@
-package pl.szeliga.pfenningTest11.Controller;
+package pl.szeliga.pfenningTest11.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.szeliga.pfenningTest11.model.DestinationWare;
 import pl.szeliga.pfenningTest11.model.Driver;

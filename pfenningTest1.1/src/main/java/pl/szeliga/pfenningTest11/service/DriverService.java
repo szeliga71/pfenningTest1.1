@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.szeliga.pfenningTest11.Controller.DriverController;
 import pl.szeliga.pfenningTest11.model.Driver;
 import pl.szeliga.pfenningTest11.repository.DriverRepository;
 

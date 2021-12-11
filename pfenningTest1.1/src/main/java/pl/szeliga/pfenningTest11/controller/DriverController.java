@@ -1,4 +1,4 @@
-package pl.szeliga.pfenningTest11.Controller;
+package pl.szeliga.pfenningTest11.controller;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
